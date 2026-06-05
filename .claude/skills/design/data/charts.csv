@@ -1,0 +1,13 @@
+data_type,best_chart,colors,accessibility,library
+Time series / trends,Line chart with area fill,Single brand color with 15% opacity fill under line,Dotted pattern fill for colorblind tooltip on hover,Recharts / Chart.js / Tremor
+Part-to-whole comparison,Donut chart or treemap,Analogous color palette max 6 segments,Label percentages directly on chart not just legend,Recharts / ApexCharts
+Ranking / comparison,Horizontal bar chart,Brand primary for top item grays for others,Sort descending value labels on bars,Recharts / D3
+Distribution,Histogram or violin plot,Single color with varying opacity bins,X-axis labels every 5th bin tooltip on hover,D3 / Vega-Lite
+Correlation,Scatter plot,Color by category use shape+color for accessibility,Shape differentiation circles squares diamonds,D3 / Plotly
+Geographic,Choropleth map or dot map,Sequential color scale single hue light to dark,Pattern overlay for high-contrast mode tooltip labels,Leaflet / Mapbox / D3
+Progress / completion,Radial progress or gauge,Brand color for progress gray for remaining,Percentage text in center aria-label on element,Recharts / ApexCharts
+Multi-metric dashboard,Sparkline + KPI card,Positive green negative red neutral gray,Icon + color + number for status never color alone,Tremor / shadcn charts
+Funnel / conversion,Funnel chart or sankey,Dark to light opacity as funnel narrows,Step labels drop-off percentage on each stage,Apache ECharts / D3
+Categorical comparison,Grouped or stacked bar,Max 4 categories distinct hues colorblind-safe palette,Legend adjacent to chart pattern fills available,Recharts / Chart.js
+Flow / process,Sankey or alluvial diagram,Source color flows through gradient to destination,Node labels always visible width = volume,D3 / Plotly
+Real-time data,Live updating line or ticker,Subtle background pulse on update green/red delta,Last-updated timestamp aria-live region,Recharts with polling / TanStack Query

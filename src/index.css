@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fafaf7;
+  --bg-soft: #f0f0eb;
+  --surface: #ffffff;
+  --surface-warm: #ebdbbc;
+  --text: #191919;
+  --text-soft: #40403e;
+  --muted: #666663;
+  --muted-2: #91918d;
+  --border: #bfbfba;
+  --accent: #cc785c;
+  --accent-2: #d4a27f;
+  --focus: #61aaf2;
+  --error: #bf4043;
+  --ink: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Assistant", "Rubik", system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Rubik", "Assistant", system-ui, sans-serif;
+  line-height: 1.08;
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+/* English / code runs inside Hebrew text */
+.ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+code, .code {
+  font-family: "Space Grotesk", ui-monospace, monospace;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a, button {
+  transition-duration: 220ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mouse-aura {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  background:
+    radial-gradient(380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(204, 120, 92, 0.18),
+      rgba(212, 162, 127, 0.08) 32%,
+      transparent 64%);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+/* Film grain overlay (decorative) */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(6) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .grain::before { animation: none; }
+  .mouse-aura { display: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (max-width: 899px) {
+  .mouse-aura { display: none; }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--text);
+}

@@ -1,0 +1,24 @@
+category,rule,do_pattern,dont_pattern,severity
+Navigation,Use sticky navigation on scroll,position: sticky; top: 0; backdrop-blur on scroll,Fixed full-height sidebar on mobile kills content area,HIGH
+Navigation,Keep nav items under 6,5-6 max items with clear hierarchy + CTA button,10+ nav items no visual hierarchy overwhelms users,HIGH
+Animation,Respect prefers-reduced-motion,@media (prefers-reduced-motion: reduce) { animation: none },Forced animations for all users causes motion sickness,HIGH
+Animation,Keep micro-interactions under 300ms,transition: all 200ms ease-in-out on hover states,1000ms+ transitions feel sluggish on interactive elements,MEDIUM
+Forms,Label above the input always,<label> above <input> persistent not placeholder-only,Placeholder-as-label disappears on focus user forgets context,HIGH
+Forms,Show validation inline not on submit,Real-time border-color change + helper text below input,Wait until form submit to show all errors at once,HIGH
+Forms,Single-column form layout,Stack inputs vertically max-width 480px centered,Two-column forms reduce completion rate 20%,MEDIUM
+Accessibility,Minimum 4.5:1 contrast ratio for body text,Check with WebAIM contrast checker use dark text on light bg,Light grey text #999 on white bg fails WCAG AA,HIGH
+Accessibility,Never use color alone to convey meaning,Icon + color + text for error states,Red border only to indicate error invisible to colorblind,HIGH
+Performance,Lazy load images below fold,loading="lazy" on all img tags below viewport,Eager-loading all images kills LCP score mobile,HIGH
+Performance,Use next/image or equivalent,Automatic WebP AVIF conversion responsive sizes,Serving 2MB JPEG unoptimized kills Core Web Vitals,HIGH
+CTA,One primary CTA per section maximum,Single high-contrast button clear action verb,3+ CTAs per section decision paralysis reduces clicks,HIGH
+CTA,Action verbs on buttons not nouns,Start Free Trial Get My Photos Download Now,Button Submit Free Trial generic no motivation,MEDIUM
+Typography,Line height 1.5-1.6 for body text,line-height: 1.6 on p elements font-size: 16-18px,Tight line-height 1.2 on body text feels cramped unreadable,HIGH
+Typography,Max line length 60-75 characters,max-width: 65ch on paragraphs,Full-width text lines on desktop eyes lose tracking,MEDIUM
+Spacing,Use 8px spacing system,margin/padding in multiples of 8: 8 16 24 32 40 48 64,Random spacing values 13px 22px 37px no visual rhythm,MEDIUM
+Mobile,Touch targets minimum 44x44px,min-height: 44px min-width: 44px on all interactive elements,Small 20x20px tap targets cause misclicks high frustration,HIGH
+Mobile,Bottom navigation for mobile apps,Fixed bottom nav bar 5 items max thumb-friendly,Top navigation on mobile requires one-handed stretch,MEDIUM
+Social Proof,Show real numbers not vague claims,10,247 customers served in 89 countries,Thousands of satisfied customers no specifics,MEDIUM
+Loading,Show skeleton screens not spinners,Skeleton placeholder matching content layout,Blank white screen with spinner feels broken,LOW
+Pricing,Anchor with highest price first,Show most expensive tier first makes middle feel reasonable,Show cheapest first anchors expectation too low,MEDIUM
+Pricing,Highlight recommended tier,Border shadow badge Most Popular on middle tier,All tiers look identical no visual hierarchy,HIGH
+Error Messages,Write human error messages,Something went wrong with your payment. Try again or contact support.,Error 422: Unprocessable Entity,HIGH

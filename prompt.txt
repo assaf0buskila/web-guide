@@ -1,0 +1,715 @@
+# BUILD PROMPT - "From Prompt to Production" Hebrew Scrollytelling Landing Page
+
+Paste this whole file into Claude Code inside VS Code, from the root of this project.
+The project may contain local skills in `.claude/skills/`; read and apply them before
+writing code.
+
+## FIRST ACTION - LOAD THE UI/UX SKILLS
+Before touching the app, load and use every relevant local skill for UI, UX, design,
+accessibility, performance, SEO, and analytics. The first implementation paragraph in
+your own working notes should explicitly say that you loaded these skills and how each
+one will influence the build.
+
+Required local skills, if present:
+- `frontend-design` - layout, hierarchy, component taste, polished interface behavior.
+- `design` - color systems, typography, spacing, landing-page patterns, visual reasoning.
+- `ux-critique` - review the finished experience and fix the weak points before done.
+- `web-accessibility` - WCAG 2.2 AA, keyboard flow, focus states, contrast, reduced motion.
+- `web-performance` - Core Web Vitals, lazy loading, image strategy, build hygiene.
+- `seo-llmo` - metadata, Open Graph, structured data, `llms.txt`, agent-readable content.
+- `search-optimization` - SEO/AEO/GEO copy structure for Google and AI answer engines.
+- `google-analytics-4` - GA4 placeholder via `VITE_GA_ID`; never hardcode a real ID.
+
+If a skill is missing, continue with the same standard manually and mention it in the
+final report. Do not stop because a skill is unavailable.
+
+## BUILD STRATEGY - WORK IN PHASES (do not try to one-shot everything)
+This is a large build. Work in ordered phases and confirm `npm run build` passes between
+each one before moving on. This keeps quality high and avoids a half-broken mega-output.
+- Phase 1 - Foundation: scaffold Vite + React + TS + Tailwind, wire the palette tokens,
+  set up Hebrew RTL, fonts, Lenis smooth scroll, scroll-progress, and the section shells
+  with real Hebrew copy. Ship a clean, readable page first.
+- Phase 2 - 3D bubble cluster: build the lazy-loaded R3F/Rapier section + static fallback.
+- Phase 3 - Ping-pong chat thread + the pinned Build Path scrollytelling.
+- Phase 4 - SEO/LLMO files, GA4 wiring, accessibility pass (run ux-critique), performance
+  pass, responsive pass, README.
+Verify the build after each phase. A polished page that nails phases 1-2 beats a sprawling
+one where everything is 70% done.
+
+## PRODUCT VISION
+Build a premium Hebrew RTL scrollytelling guide that teaches people how to take a landing
+page from idea to live Vercel deployment using AI. The page itself is the proof: it should
+feel like a beautifully built example, while explaining how it was built.
+
+The story is not "AI made a page." The story is:
+1. Load UI/UX thinking before generating anything.
+2. Study strong references instead of designing from an empty page.
+3. Work in a ping-pong loop between Claude and GPT to sharpen strategy, copy, structure,
+   implementation, critique, and polish.
+4. Build the page in VS Code as a real React app.
+5. Optimize for accessibility, performance, SEO, LLM visibility, and conversion.
+6. Push the code to GitHub and upload/deploy it to Vercel.
+
+The page must feel comprehensive, cinematic, compressed in layout but rich in meaning:
+every section should teach one sharp idea, then expand it with practical detail, examples,
+micro-copy, and visual evidence.
+
+## AUDIENCE, LANGUAGE, AND TONE
+- Primary language: Hebrew.
+- Direction: `<html lang="he" dir="rtl">`.
+- Technical names stay in English: Claude, GPT, ChatGPT, Vercel, VS Code, GitHub, React,
+  Vite, TypeScript, Tailwind, Framer Motion, Lenis, SEO, UI/UX, Lighthouse, Core Web Vitals.
+- Handle bidi carefully: wrap English product names, URLs, file paths, numbers, and code
+  tokens in inline elements with `dir="ltr"` where needed.
+- Tone: smart, practical, aspirational, clear. It should feel like a guide from someone
+  who actually built the thing, not generic marketing text.
+- Copy density: rich but scannable. Use short Hebrew paragraphs, strong headings, visual
+  callouts, step labels, code snippets, checklists, and "what to do next" moments.
+- Avoid empty hype. Every claim should connect to an action, design choice, or result.
+
+## RTL & HEBREW CORRECTNESS (do it properly, not as an afterthought)
+Hebrew must be a first-class layout, not LTR-with-a-dir-flag. Enforce all of this:
+- `<html lang="he" dir="rtl">`. The whole layout mirrors; reading flows right-to-left.
+- Use CSS LOGICAL PROPERTIES everywhere (margin-inline / padding-inline / inset-inline /
+  start/end), never hardcoded left/right. In Tailwind use logical/`rtl:` utilities so spacing,
+  alignment, and order mirror automatically. No physical `ml-`/`mr-`/`left-`/`right-` for layout.
+- Bidi isolation for every embedded LTR run (English names, URLs, file paths, numbers, code,
+  ratios like 9:16): wrap in `<bdi>` or `unicode-bidi: isolate` so neighboring Hebrew and
+  punctuation don't flip. "AI" must never render as "IA"; commas/periods stay on the correct side.
+- Mirror DIRECTIONAL UI for RTL: scroll cues, "next/prev" arrows, the progress rail and the
+  Plan -> ... -> Ship map flow right-to-left; slide-in animations enter from the correct (right) side;
+  any chevrons/arrows are flipped. Logos and the 3D canvas are direction-neutral - leave them.
+- Fonts: the Hebrew display/body fonts (Frank Ruhl Libre / Heebo / Assistant) must carry the
+  Hebrew subset; the Latin grotesk (Space Grotesk) is for English tech terms ONLY and must
+  never be the fallback for Hebrew text (that causes tofu/□). Set a Hebrew-capable fallback
+  in the font stack. Verify no missing-glyph boxes anywhere.
+- Hebrew line-height ~1.6, comfortable letter spacing (Hebrew has no caps - don't fake it).
+- Test RTL at every breakpoint: no clipped text, no horizontal scroll, no element that
+  silently assumed LTR (especially the chat thread, the Build Path rail, and the deploy steps).
+
+## CORE NARRATIVE COPY DIRECTION
+Write the page around these expanded Hebrew ideas. Improve the wording, but keep the
+meaning:
+
+### Opening Thesis
+"לפני שמבקשים מ-AI לבנות אתר, צריך ללמד אותו איך לחשוב כמו מעצב מוצר. לכן מתחילים
+בטעינת כישורי UI/UX, נגישות, ביצועים ו-SEO. רק אחרי שהמסגרת המקצועית קיימת, נותנים
+ל-Claude ול-GPT לשחק פינג-פונג: אחד מציע כיוון, השני מבקר, הראשון משפר, והשיחה הופכת
+לתהליך עבודה אמיתי."
+
+### Reference-First Design
+Explain that great AI web design starts by collecting references:
+- Look at landing pages that already solve similar problems.
+- Study layout rhythm, spacing, typography, section order, CTA placement, motion, and
+  trust-building details.
+- Do not copy blindly; extract principles.
+- Use references as a visual vocabulary for Claude/GPT.
+- Mention that this project uses references from:
+  - `ref/color palette.png`
+  - `ref/Ball affect/`
+  - an open-source bubble/tech-stack implementation:
+    `https://github.com/kevingoyal2006/Portfolio-Website/blob/main/src/components/TechStack.tsx`
+  - live reference for the bubble/portfolio effect:
+    `https://kevingoyal.vercel.app/`
+  - my live website:
+    `https://www.assafweb.com/`
+  - my open-source GitHub repository:
+    `https://github.com/assaf0buskila/assaf-landingPage`
+
+### Claude + GPT Ping-Pong
+Create a memorable visual section showing the workflow as a two-sided conversation between
+two AI partners. Concept: an editorial CHAT THREAD, not human characters. Claude messages
+align to one side (Book Cloth-tinted bubbles, Claude sunburst as a small circular avatar),
+GPT messages to the other side (Slate/ivory bubbles, OpenAI knot as a small circular
+avatar). Between turns, show small artifact chips - a code line, a design note, a checklist
+item - representing what changed in the page because of that exchange. Premium, restrained,
+product-design oriented. Do NOT draw human figures/avatars in T-shirts (they read amateur);
+keep it a clean messaging UI with branded marks.
+
+The dialogue should show how the build improves:
+- Claude: "בוא נבנה מבנה שמוביל את המשתמש מהבעיה לפרסום ב-Vercel."
+- GPT: "נחדד את ההבטחה, נקצר את המסר, ונוסיף הוכחה בכל שלב."
+- Claude: "אני מתרגם את זה לקומפוננטות, אנימציות וזרימת Scroll."
+- GPT: "אני עושה ביקורת: נגישות, ביצועים, SEO, ושאלות שהמשתמש עוד לא שאל."
+
+Animate this section so the bubbles appear one by one on scroll, like a conversation that
+builds the page in front of the visitor.
+
+### Vercel Upload/Deploy Guide
+GOAL OF THIS SECTION: a complete beginner who has never deployed anything should be able to
+get their OWN site live just by scrolling and following along. Write it so it teaches a
+transferable skill ("here is how YOU upload your site"), not just "deploy this demo."
+
+Step 0 - Before you start (prerequisites; state these explicitly, do not assume):
+- A free GitHub account.
+- A free Vercel account (sign in with GitHub - one click, no separate password).
+- Node.js (LTS) and Git installed on the computer. Give the one-line check:
+  `node -v` and `git -v` should print version numbers.
+
+Then present TWO paths, clearly labeled, easiest first:
+
+PATH A - Easiest, no Git knowledge needed (Vercel CLI or drag-and-drop):
+1. `npm install` then `npm run build` -> produces a `dist/` folder.
+2a. Drag-and-drop: go to vercel.com -> New Project -> drag the `dist` folder in -> it goes live.
+    OR
+2b. CLI: `npm i -g vercel`, then run `vercel` in the project folder and answer the prompts.
+3. Vercel gives you a live `*.vercel.app` URL. Done.
+
+PATH B - Recommended for real projects (GitHub -> auto-redeploy on every push):
+1. `npm run build` works locally (Vite output dir = `dist`).
+2. Push the project to GitHub (commands shown as copyable chips below).
+3. On Vercel: "Add New... -> Project" -> Import your GitHub repo.
+4. Confirm framework preset = Vite, build command = `npm run build`, output dir = `dist`.
+5. (Optional) add env var `VITE_GA_ID` only if using analytics.
+6. Click Deploy, wait for the build, open the live URL.
+7. From now on, every `git push` auto-redeploys.
+
+After either path:
+- Re-run Lighthouse on the live URL.
+- Update links, the Open Graph image, sitemap, and `llms.txt`.
+
+PRESENTATION REQUIREMENTS (so a scroller actually understands):
+- Render as a polished step-by-step scrollytelling path, NOT a plain article. Each step
+  advances as the user scrolls.
+- For each Vercel-dashboard action, include an annotated visual cue (a labeled mockup of the
+  button/screen - "Add New... -> Project", "Import", "Deploy") with descriptive alt text.
+  Do not rely on words alone for UI clicks.
+- Every command is a code chip with a copy-to-clipboard button.
+- After each step show a one-line "[OK] מה אמור לקרות עכשיו" (what success looks like) so the
+  user knows they did it right.
+- End with a short "תקלות נפוצות" (common mistakes) callout in Error red `#BF4043`:
+  build command/output dir wrong, missing `npm install`, env var not set, wrong Node version.
+- Make this section reachable directly: the hero secondary CTA and the progress rail both
+  link/anchor to it, so a visitor who only wants "how to upload" can jump straight here.
+
+## VISUAL SYSTEM - USE THE PROVIDED PALETTE
+Use the exact palette from `ref/color palette.png`. Centralize all colors as CSS variables
+and Tailwind theme tokens so the system is easy to maintain.
+
+Palette:
+- Slate Dark: `#191919`
+- Slate Medium: `#262625`
+- Slate Light: `#40403E`
+- Cloud Dark: `#666663`
+- Cloud Medium: `#91918D`
+- Cloud Light: `#BFBFBA`
+- Ivory Dark: `#E5E4DF`
+- Ivory Medium: `#F0F0EB`
+- Ivory Light: `#FAFAF7`
+- Book Cloth: `#CC785C`
+- Kraft: `#D4A27F`
+- Manilla: `#EBDBBC`
+- Black: `#000000`
+- White: `#FFFFFF`
+- Focus: `#61AAF2`
+- Error: `#BF4043`
+
+Recommended tokens:
+- `--bg`: `#FAFAF7`
+- `--bg-soft`: `#F0F0EB`
+- `--surface`: `#FFFFFF`
+- `--surface-warm`: `#EBDBBC`
+- `--text`: `#191919`
+- `--text-soft`: `#40403E`
+- `--muted`: `#666663`
+- `--muted-2`: `#91918D`
+- `--border`: `#BFBFBA`
+- `--accent`: `#CC785C`
+- `--accent-2`: `#D4A27F`
+- `--focus`: `#61AAF2`
+- `--error`: `#BF4043`
+- `--ink`: `#000000`
+
+Use the palette like an editorial design system:
+- Ivory and white create the main reading surface.
+- Slate creates text, dividers, and occasional dark immersive sections.
+- Book Cloth and Kraft are the warm action colors.
+- Focus blue is only for focus states, selected controls, active progress, and tiny sparks
+  of interaction.
+- Error red is only for warnings, validation, or "common mistake" callouts.
+- Avoid rainbow gradients and avoid generic purple/cyan AI aesthetics.
+
+CONTRAST RULES - WCAG 2.2 AA is mandatory, so use only these text/background pairings:
+- Body text: Slate Dark `#191919` on Ivory/White (passes easily).
+- Primary CTA: Slate Dark `#191919` ground with Ivory `#FAFAF7` text (high contrast).
+- Warm CTA / accent button: Book Cloth `#CC785C` or Kraft `#D4A27F` ground with DARK ink
+  text `#191919` - NEVER white text on Book Cloth/Kraft (it fails AA at ~2.6:1).
+- Book Cloth as TEXT is only allowed on Ivory/White and at large display sizes (>=24px bold);
+  do not use Book Cloth for small body text.
+- On dark Slate sections: text must be Ivory `#FAFAF7` or Cloud Light `#BFBFBA`.
+- Verify every text/background pair meets >=4.5:1 (normal) or >=3:1 (large text/UI) before done.
+
+## DESIGN QUALITY BAR (HIGH-PROFESSIONAL) - MAKE IT LOOK DESIGNED, NOT GENERATED
+The page must read like a designer-crafted editorial product page, not a generic AI/SaaS
+template. Hold this bar throughout:
+
+Typography (Hebrew-first, premium):
+- Use real Hebrew webfonts, not system defaults. Recommended pairing:
+  - Display/headings (Hebrew): "Frank Ruhl Libre" (editorial serif) OR "Heebo"/"Ploni" bold.
+  - Body/UI (Hebrew): "Heebo" or "Assistant".
+  - Latin tech terms: a grotesk like "Space Grotesk" (NOT Inter/Arial). Harmonize sizes so
+    Hebrew and Latin sit on the same baseline.
+- Load via preconnect + `display=swap`, subset Hebrew, and avoid layout shift.
+- Strong type scale (e.g. 1.25 ratio): oversized display headings, clear H2/H3, comfortable
+  16-18px body, generous line-height (~1.6 for Hebrew). One H1 only.
+
+Layout & rhythm:
+- 4px spacing base; generous section padding (96-160px desktop, 56-72px mobile).
+- Reading column max ~680px; full layout max ~1200px. Use real whitespace.
+- Editorial, slightly off-axis compositions and asymmetric splits - avoid the centered
+  card-stack SaaS look. Strong grid, intentional alignment, no crowding.
+
+Motion (restrained and consistent - tokenize it):
+- Reveal: fade + 16-24px rise, duration ~0.6s, ease `cubic-bezier(0.22, 1, 0.36, 1)`.
+- Stagger children ~0.06-0.08s. Parallax max ~40px. No bounce, no random timings.
+- Everything respects `prefers-reduced-motion` (content stays, motion stops).
+
+Finish & restraint:
+- Subtle film grain / paper texture on light sections; soft, realistic shadows; thin
+  hairline borders in Cloud Light. NO heavy glows, NO neon, NO purple/cyan AI gradients.
+- Consistent corner radius, consistent icon weight, consistent button styles.
+- Anti-slop gate before "done": if a section looks like a default template, redesign it.
+
+## ASSETS & LOGOS
+Real brand assets already live in the project - use these, do not invent or fetch random
+logos:
+
+Vector marks in `public/logos/` (single-color SVGs, recolor via `fill`/`currentColor`):
+- `public/logos/vercel.svg`    - Vercel triangle.
+- `public/logos/claude.svg`    - Claude sunburst (currently Book Cloth `#CC785C`).
+- `public/logos/anthropic.svg` - Anthropic mark (use only where Anthropic-the-company is meant).
+
+Raster marks for the 3D ball textures, in `public/images/` (derive from `ref/Ball affect/`):
+- `public/images/gpt.png`    - OpenAI knot, from `ref/Ball affect/2.jpg` (black-on-white),
+  processed to a clean transparent-edge square. (OpenAI has no Simple Icons SVG; if you want
+  a vector, download the official one from openai.com/brand and save as `public/logos/openai.svg`.)
+- `public/images/claude.png` - Claude sunburst, from `ref/Ball affect/3.jpg`/`4.jpg`.
+
+Where to use each:
+- Vercel: the deploy section, the "Ship" step, and the footer.
+- OpenAI knot + Claude sunburst: the 3D balls, the ping-pong chat avatars, and the AI-stack section.
+- Anthropic mark: optional, only in genuine Anthropic/Claude context.
+
+Logo usage rules (trademark hygiene - bake these in):
+- Keep each mark's proportions and clear space; do not stretch, rotate, or restyle the mark
+  itself. Monochrome/palette tinting of the single-color SVGs is fine.
+- Use logos at identifying scale, never as wallpaper or in a way that implies these companies
+  endorse or sponsor the page. Add a small "אינו קשור רשמית" style disclaimer in the footer
+  if logos appear prominently.
+- Every logo: accessible name via `<title>`/`alt`; purely decorative uses get `aria-hidden`.
+
+CSS/SVG BRAND MOTIFS (the only extra visual layer - NO stock photos, NO AI clip-art):
+Recreate these in code so the page feels designed, not decorated:
+- A subtle Vercel-triangle motif as a section divider / background accent (reuse the
+  triangle geometry from `vercel.svg`).
+- A faint geometric grid/mesh and sunburst rays echoing the Claude mark - low opacity,
+  Book Cloth or Cloud Light, behind dark sections only.
+- Soft Book Cloth radial glows on the Slate-dark sections (restrained, no neon bloom).
+- The thin connecting rail/timeline used in the ping-pong and Build Path sections.
+All motifs are monochrome/palette-tinted, low-contrast, and `aria-hidden`. If a motif starts
+to look busy or generic, remove it - restraint over decoration.
+
+## TECH STACK
+Target deployment: Vercel.
+
+Use:
+- React + Vite + TypeScript.
+- Tailwind CSS.
+- Framer Motion for scroll reveals and pinned transitions.
+- Lenis or `@studio-freight/lenis` for smooth scroll.
+- Three.js stack for the signature bubble section:
+  - `three`
+  - `@react-three/fiber`
+  - `@react-three/drei`
+  - `@react-three/rapier`
+  - `@react-three/postprocessing`
+- No backend.
+- Static SPA.
+- Must build cleanly with `npm run build`.
+
+## EXPERIENCE STYLE - SCROLLYTELLING, NOT A GENERIC PAGE
+The page should feel like a guided descent through the build process:
+- A top scroll-progress indicator.
+- Smooth Lenis glide.
+- Sticky/pinned sections where the current step changes as the user scrolls.
+- Text reveals with fade + rise.
+- Gentle parallax on background texture, code strips, and visual artifacts.
+- Scroll-triggered progress map: Plan -> Reference -> Ping-Pong -> Build -> Optimize -> Ship.
+- Micro-interactions on CTAs, resource buttons, checklist items, and deployment steps.
+- Reduced-motion mode must preserve all content and remove heavy movement.
+- Avoid noisy bounce, random animation, oversized card stacks, and generic centered SaaS blocks.
+
+Preferred composition:
+- Editorial split sections.
+- Sticky side labels.
+- Large Hebrew display headings.
+- Dense but elegant instruction blocks.
+- Inline code chips for commands.
+- Timeline/rail navigation that advances while scrolling.
+- One or two immersive dark sections for contrast, especially the AI stack/bubble area.
+
+## SIGNATURE SECTION 1 - HERO
+Create a first viewport that immediately communicates the guide:
+- Big Hebrew headline. Example direction:
+  "מה-Prompt הראשון ועד Landing Page חי ב-Vercel"
+- Subhead:
+  "מדריך ויזואלי שמראה איך Claude, GPT, רפרנסים, UI/UX וקוד אמיתי הופכים רעיון לעמוד
+  נחיתה מהיר, נגיש ומוכן לפרסום."
+- Primary CTA:
+  "להתחיל את המסלול"
+- Secondary CTA:
+  "לראות את הקוד"
+- Include a soft scroll cue.
+- Background: light editorial surface with subtle grain, oversized typography fragments,
+  and warm Kraft/Book Cloth accents. No generic gradient blob background.
+
+## SIGNATURE SECTION 2 - 3D AI STACK BUBBLE CLUSTER
+Recreate the glossy floating-bubble cluster from this reference implementation:
+`https://github.com/kevingoyal2006/Portfolio-Website/blob/main/src/components/TechStack.tsx`
+
+Also study the live reference for spacing, motion feel, and the way the bubble moment sits
+inside a portfolio page:
+`https://kevingoyal.vercel.app/`
+
+Build it as its own lazy-loaded React component so 3D code never blocks the rest of the page.
+
+Core technique:
+- `<Canvas>` transparent background:
+  `gl={{ alpha: true, stencil: false, depth: false, antialias: false }}`
+- Camera:
+  `position={[0, 0, 20]}`, `fov={32.5}`, `near={1}`, `far={100}`
+- `onCreated` sets `toneMappingExposure = 1.5`.
+- Use about 28-32 balls.
+- Use `SphereGeometry(1, 28, 28)`.
+- Random scale from `[0.7, 1, 0.8, 1, 1]`.
+- Use `@react-three/rapier` physics with no gravity.
+- Each ball:
+  - `RigidBody`
+  - `linearDamping={0.75}`
+  - `angularDamping={0.15}`
+  - `friction={0.2}`
+  - `BallCollider`
+  - every frame applies an impulse toward the center so the balls gather into a tight cluster.
+- Cursor interaction:
+  - A kinematic pointer body follows the mouse.
+  - The pointer has a `BallCollider`.
+  - Hovering shoves the balls gently.
+- Section background: this is one of the intentional immersive DARK sections. Use a Slate
+  Dark `#191919` (to `#262625`) background so the glossy balls and the Book Cloth Claude
+  ball pop against the otherwise ivory page.
+- Lighting:
+  - `ambientLight`
+  - `spotLight` (castShadow)
+  - `directionalLight`
+  - `Environment` - a neutral drei preset like `"studio"` or `"city"`, or a small custom
+    `.hdr` in `/public/models/`. Keep reflections clean and neutral, not colored.
+- Post-processing:
+  - `EffectComposer`
+  - `N8AO` for soft contact shadows between balls. AO color = Slate Dark `#191919`
+    (NOT purple - stay inside the palette), aoRadius ~2, intensity ~1.15.
+- Activate physics only when the section is visible.
+- Pause render loop when offscreen.
+- Cap DPR: `dpr={[1, 1.5]}`.
+
+Material baseline for ALL balls (glossy, premium, on-brand): `MeshPhysicalMaterial`
+with metalness ~0.5, roughness ~0.9-1.0, clearcoat ~0.1, emissive white at
+emissiveIntensity ~0.3 (and emissiveMap = the logo texture for logo balls so the marks
+stay legible under the AO). Logo balls keep a clean white/ivory ground so the mark reads.
+
+The five ball styles (assign across the ~28-32 balls; logo balls are the visual focus):
+- GPT ball:    glossy ball, white/ivory ground, the OpenAI "knot" mark centered in Slate
+               Dark `#191919`. Reference: `ref/Ball affect/1.jpg` and `2.jpg`.
+- Claude ball: glossy ball in Book Cloth `#CC785C` ground with the white Claude "sunburst"
+               mark - the Claude app-icon treatment. Reference: `ref/Ball affect/3.jpg`
+               and `4.jpg`. (A white-ground Claude ball with a Book Cloth sunburst is an
+               acceptable alternate.)
+- Slate ball:  solid dark glossy ball, no logo, Slate Dark `#191919` / Slate Medium `#262625`.
+- Warm ball:   solid Kraft `#D4A27F` or Manilla `#EBDBBC`, no logo.
+- Focus spark: ONE or two balls only, Focus blue `#61AAF2`, used as a rare accent.
+Rough mix: a few GPT, a few Claude, several Slate, several Warm, 1-2 Focus.
+
+LOGO ASSETS - the marks already exist in `ref/Ball affect/`:
+- GPT/OpenAI knot:  `ref/Ball affect/1.jpg` (white on black), `2.jpg` (black on white).
+- Claude sunburst:  `ref/Ball affect/3.jpg` (white on Book Cloth), `4.jpg` (Book Cloth on white).
+Process these into clean, square, transparent-edge textures and place the working files at
+`public/images/gpt.png` and `public/images/claude.png` (code references them as
+`/images/gpt.png` and `/images/claude.png` - in Vite, files in `public/` are served from `/`).
+If a processed file is missing, generate a simple placeholder texture that reproduces the
+mark (knot for GPT, radial sunburst for Claude) so the scene still renders.
+
+Fallbacks:
+- On mobile, reduced motion, low-power devices, or no WebGL: show a static rendered/poster
+  composition instead of live physics.
+- The page must never fail just because WebGL fails.
+
+## SIGNATURE SECTION 3 - CLAUDE/GPT PING-PONG
+Create a custom animated section called something like:
+"הפינג-פונג שבנה את העמוד"
+
+Visual concept - an EDITORIAL CHAT THREAD (no human figures):
+- A vertical conversation. Claude turns align to one side, GPT turns to the other.
+- Each turn is a message bubble with a small circular avatar showing the brand mark
+  (Claude sunburst / OpenAI knot) and a name label. Claude bubbles carry a subtle Book
+  Cloth tint; GPT bubbles use ivory/Slate. Keep generous spacing and a clear reading rhythm.
+- Between turns, drop small "artifact" chips: a code line, a design note, a checklist item,
+  or a tiny progress marker - what actually changed in the page because of that exchange.
+- The thread advances on scroll like a real conversation building the page:
+  1. Strategy
+  2. Structure
+  3. Copy
+  4. Components
+  5. Critique
+  6. Deploy
+- Tasteful and premium, never cartoonish. Build it from CSS/HTML/SVG + the brand marks;
+  do not require generated illustration. Provide graceful text fallbacks if a mark is missing.
+- Connect bubbles with a thin Slate timeline/rail so the eye follows the back-and-forth.
+
+Each step should include expanded Hebrew copy:
+- What Claude contributes.
+- What GPT contributes.
+- What the human decides.
+- What changes in the code/page because of the exchange.
+
+## PAGE STRUCTURE
+Build these sections from top to bottom.
+
+### 1. Hero
+Promise, subhead, CTA, code/resource CTA, scroll cue, subtle animated background.
+
+### 2. Why This Matters
+Explain the problem:
+"כל אחד יכול לבקש מ-AI לבנות אתר. מעט אנשים מקבלים עמוד שנראה טוב, נטען מהר,
+מסביר ברור, נגיש, מדורג בגוגל, ומוכן לעלות ל-Vercel."
+
+Expand into 3 pain points:
+- AI without design context produces generic pages.
+- Code without UX review produces friction.
+- Deployment without SEO/performance checks produces weak results.
+
+### 3. Load Skills First
+Show the professional setup:
+- UI/UX thinking.
+- Design system.
+- Accessibility.
+- Performance.
+- SEO/LLMO.
+- Analytics.
+
+This should be the first major educational paragraph after the hero. Make it feel like
+"the hidden move" that makes the rest work.
+
+### 4. Reference Board
+Explain how to take references from other websites:
+- What to look for.
+- What to copy as principle, not pixels.
+- How to give references to Claude/GPT.
+- How to compare multiple references.
+- How to avoid copying another creator's brand or exact design.
+
+Show a visual reference board using the real palette and the ball-effect assets.
+
+### 5. AI Stack / 3D Bubble Cluster
+Use the live 3D bubble cluster or fallback poster. Heading default:
+`{{STACK_HEADING}}`
+Fallback if missing:
+"הסטאק שבנה את העמוד"
+
+### 6. Ping-Pong Workflow
+The Claude/GPT conversation section described above.
+
+### 7. The Build Path
+Pinned scrollytelling path:
+- Plan - define promise, audience, sections, CTAs.
+- Design - palette, typography, layout rhythm, reference translation.
+- Build - React components, Tailwind tokens, responsive structure.
+- Motion - Lenis, Framer Motion, scroll progress, reduced motion.
+- Polish - UX critique, accessibility, performance.
+- Find - SEO, Open Graph, JSON-LD, sitemap, `llms.txt`.
+- Ship - GitHub to Vercel.
+
+Each step needs:
+- A Hebrew heading.
+- A concise explanation.
+- A "what we ask AI" prompt example.
+- A "what we check as humans" note.
+- A tiny implementation artifact: command, file, checklist, or UI detail.
+
+### 8. Vercel Deployment Guide
+Build the full guide described in "Vercel Upload/Deploy Guide" above: Step 0 prerequisites,
+Path A (easiest - CLI / drag-drop), Path B (GitHub auto-redeploy), annotated dashboard
+visuals, per-step "what success looks like", and a "common mistakes" callout. A first-time
+visitor must be able to deploy their own site from this section alone.
+
+Every command is a copyable code chip with a copy-to-clipboard button:
+- `node -v` / `git -v`   (prerequisite check)
+- `npm install`
+- `npm run dev`
+- `npm run build`
+- `npm i -g vercel` / `vercel`   (Path A - CLI)
+- `git init`
+- `git add .`
+- `git commit -m "Initial landing page"`
+- `git remote add origin https://github.com/assaf0buskila/assaf-landingPage`
+- `git push -u origin main`
+
+Do not execute deployment. Only build and prepare the code.
+
+### 9. Proof / Result
+Show outcome cards or metrics:
+- Lighthouse-style Performance, Accessibility, Best Practices, SEO.
+- "Built with this exact process."
+- "Ready for Vercel."
+- "Readable by humans and AI agents."
+
+### 10. Resources
+Prominent resource buttons:
+- "האתר שלי" -> `https://www.assafweb.com/`
+- "הקוד הפתוח שלי ב-GitHub" -> `https://github.com/assaf0buskila/assaf-landingPage`
+- "רפרנס חי נוסף" -> `https://kevingoyal.vercel.app/`
+- "רפרנס בועות 3D" ->
+  `https://github.com/kevingoyal2006/Portfolio-Website/blob/main/src/components/TechStack.tsx`
+
+External links open in a new tab with `rel="noopener noreferrer"`.
+
+### 11. Final CTA + Footer
+Repeat the promise, link to resources, and include a compact copyright/footer.
+
+## COMPONENT REQUIREMENTS
+Create a clean component system:
+- `App.tsx`
+- `components/Hero.tsx`
+- `components/ScrollProgress.tsx`
+- `components/SkillLoaderSection.tsx`
+- `components/ReferenceBoard.tsx`
+- `components/AiStackScene.tsx` or lazy-loaded `AiStack3D.tsx`
+- `components/PingPongSection.tsx`
+- `components/BuildPath.tsx`
+- `components/VercelDeployGuide.tsx`
+- `components/ProofSection.tsx`
+- `components/Resources.tsx`
+- `components/Footer.tsx`
+- `components/ReducedMotionProvider.tsx` if useful
+- `lib/analytics.ts`
+- `lib/seo.ts` if useful
+
+Use local data arrays for steps/resources instead of hardcoding repeated markup.
+
+## ACCESSIBILITY REQUIREMENTS
+- Semantic landmarks: header, main, section, nav, footer.
+- One clear `h1`.
+- Logical heading order.
+- Keyboard-reachable CTAs and controls.
+- Visible focus states using `#61AAF2`.
+- Color contrast must meet WCAG 2.2 AA.
+- Respect `prefers-reduced-motion`.
+- 3D canvas must have an accessible text alternative.
+- Decorative visuals must be hidden from screen readers.
+- Buttons and links must have clear accessible names.
+- Do not rely on color alone for status.
+
+## PERFORMANCE REQUIREMENTS
+- Lazy-load the 3D section.
+- Do not load heavy assets above the fold.
+- Optimize images.
+- Avoid layout shift.
+- Cap canvas DPR.
+- Pause 3D when offscreen.
+- Use system fonts or optimized font loading.
+- Keep bundle reasonable.
+- `npm run build` must pass.
+
+## SEO, AEO, GEO, AND LLMO REQUIREMENTS
+Add:
+- `<title>` in Hebrew.
+- Meta description in Hebrew.
+- Open Graph tags (og:title, og:description, og:type, og:url, og:image, og:locale=he_IL).
+- Open Graph image at `/public/og.png` (1200x630). Generate a branded placeholder using the
+  palette (Ivory ground, Slate headline, Book Cloth accent) if no final image is provided.
+- Twitter card tags (summary_large_image).
+- Canonical URL = `{{PRODUCTION_URL}}` (this page's OWN deployed Vercel URL). Do NOT point
+  canonical at `https://www.assafweb.com/` - that is a different site and would tell Google
+  this page is a duplicate of it. Leave the token until the real production URL is known.
+- JSON-LD for `WebSite`, `Article` or `HowTo`, and `Organization` if appropriate.
+- `robots.txt`.
+- `sitemap.xml`.
+- `llms.txt` that summarizes the guide for AI agents.
+- Clear H2/H3 structure using questions and practical phrases people search for.
+- Hebrew FAQ or "שאלות נפוצות" section if it fits naturally.
+
+## ANALYTICS REQUIREMENT
+Add GA4 support but do not hardcode an ID:
+- Read `import.meta.env.VITE_GA_ID`.
+- If missing, analytics should do nothing.
+- Include `.env.example` with `VITE_GA_ID=`.
+
+## RESPONSIVE REQUIREMENTS
+- Desktop: immersive scrollytelling, pinned sections, 3D/visual moments.
+- Tablet: preserve structure without cramped columns.
+- Mobile: simplify pinned behavior into stacked sections, use static 3D fallback, keep text
+  highly readable.
+- No text overlap at any viewport.
+- No horizontal scrolling.
+
+## COPY QUALITY BAR
+The Hebrew copy must be expanded and specific. For every major claim, add one of:
+- A concrete action.
+- A real implementation detail.
+- A prompt example.
+- A human review checklist.
+- A result/outcome.
+
+Avoid generic lines like "AI helps you build faster" unless followed by the exact way it
+helps in this workflow.
+
+## FINAL VERIFICATION CHECKLIST
+The work is not done until:
+- [ ] The app runs locally.
+- [ ] `npm run build` succeeds (and passed at the end of each build phase).
+- [ ] Palette from `ref/color palette.png` is implemented as tokens.
+- [ ] Real Hebrew webfonts are loaded (not system defaults); no layout shift.
+- [ ] Every text/background pair meets WCAG AA contrast (no white text on Book Cloth/Kraft).
+- [ ] RTL done properly: logical CSS props (no hardcoded left/right), bidi-isolated LTR runs
+      (no flipped "AI"/punctuation), mirrored directional UI/arrows/rail, Hebrew-capable font
+      fallback (no tofu boxes), and verified at every breakpoint.
+- [ ] Claude/GPT ping-pong is a clean chat thread (no human avatars).
+- [ ] Reference-board section exists and explains how to use references.
+- [ ] Vercel deployment guide is detailed and practical.
+- [ ] A first-time visitor could deploy their OWN site using only the on-page guide:
+      prerequisites (accounts + Node/Git) stated, two paths offered, dashboard steps shown
+      visually, copy buttons on commands, "what success looks like" + common-mistakes present,
+      and the section is reachable via the hero CTA / progress rail.
+- [ ] 3D bubble section is lazy-loaded and has a reliable static fallback.
+- [ ] Ball styles match the brand marks in `ref/Ball affect/` and the palette.
+- [ ] Logos come from `public/logos/` + `public/images/` (no random/fan logos); brand motifs
+      are CSS/SVG only (no stock photos); logo proportions kept + footer disclaimer if prominent.
+- [ ] Reduced motion mode works.
+- [ ] Accessibility basics are checked (ran a ux-critique pass).
+- [ ] SEO/LLMO files present; canonical + og:url use `{{PRODUCTION_URL}}`; `/public/og.png` exists.
+- [ ] `.env.example` exists.
+- [ ] README includes local run and Vercel deploy instructions.
+
+## REAL LINKS PROVIDED
+Use these links in the resources section, deployment guide, and metadata where relevant:
+- Website: `https://www.assafweb.com/`
+- GitHub repository: `https://github.com/assaf0buskila/assaf-landingPage`
+- Kevin Goyal live reference: `https://kevingoyal.vercel.app/`
+- Kevin Goyal 3D source reference:
+  `https://github.com/kevingoyal2006/Portfolio-Website/blob/main/src/components/TechStack.tsx`
+
+## PLACEHOLDERS TO KEEP
+Do not invent these. Leave the tokens visible so I can replace them later:
+- `{{STACK_HEADING}}`
+- `{{PRODUCTION_URL}}`  (this page's own deployed Vercel URL - used for canonical + og:url)
+- `/public/images/claude.png`  (Claude sunburst; derive from `ref/Ball affect/3.jpg` or `4.jpg`)
+- `/public/images/gpt.png`     (OpenAI knot; derive from `ref/Ball affect/1.jpg` or `2.jpg`)
+- `/public/og.png`  (1200x630 social share image)
+- `VITE_GA_ID`
+
+## DELIVERABLE
+Create a complete runnable React + Vite + TypeScript + Tailwind project in this folder.
+Build it as a polished Hebrew scrollytelling guide with the palette and references above.
+Do not deploy to Vercel. Stop after the build passes and report:
+- What was built.
+- Which commands passed.
+- Which placeholders still need real values.
+- Any missing assets or assumptions.

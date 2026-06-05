@@ -1,0 +1,22 @@
+product_type,recommended_style,color_mood,typography_mood,key_effects,anti_patterns,severity
+SaaS (General),Hero + Features + CTA,Trust blue + Orange CTA,Clean geometric,Glassmorphism cards hover lift shadow depth,Cluttered hero with too many CTAs,HIGH
+AI / Machine Learning,Dark glassmorphism + gradient hero,Deep purple + cyan accents,Modern geometric sans,Animated gradient mesh particle effects,Generic stock photos instead of product demos,HIGH
+AI Product Photography,Dark cinematic with product showcase,Midnight blue + crimson accent,Bold editorial,Full-bleed product images hover parallax,Showing fake before/after stock photos,HIGH
+E-commerce (Fashion),Editorial grid with model photography,Emerald green + orange CTA,Elegant serif headings,Hover zoom on product images parallax scroll,Small product images no white space,HIGH
+E-commerce (General),Product grid with trust signals,Red urgency + amber CTA,Clean sans-serif,Quick-add-to-cart hover countdown timer,No social proof below fold no reviews visible,HIGH
+Luxury / Premium,Minimal single column editorial,Black + gold accent cream bg,Serif headline sans body,Slow fade transitions generous white space,Too many colors busy layouts discount badges,HIGH
+Luxury Fashion,Full-bleed editorial single focus,Black + warm gold,Serif display body elegant,Scroll-triggered reveals cinematic video hero,Generic fonts grid layouts sale banners,HIGH
+Fintech / Crypto,Conversion-optimized dark mode,Deep purple + amber accents,Modern sans-serif precise,Dark mode glassmorphism animated counters,Light backgrounds reduce trust no security badges,HIGH
+Banking / Finance,Trust-first with clear hierarchy,Navy blue + green CTA,Professional sans-serif,Subtle hover states no animations security seals,Complex jargon no plain language no phone support,HIGH
+Healthcare App,Clean card-based calm layout,Teal + green CTA white bg,Friendly rounded sans,Gentle fade transitions accessibility contrast,Red as primary color triggers anxiety no doctor photos,HIGH
+Restaurant / Food,Menu-first visual with food photography,Warm red + gold accents,Friendly rounded,Food photography parallax menu hover preview,Stock food photos instead of real food no phone number prominent,HIGH
+Fitness / Gym,Dark energetic with bold typography,Dark green + red CTA,Bold condensed sans,Before/after reveals countdown scroll energy,Pastel colors timid typography no social proof,HIGH
+Wellness / Spa,Soft organic with natural textures,Warm amber + soft green,Gentle serif sans-serif,Gentle parallax nature textures fade-in,Harsh colors corporate layouts rushed pacing,MEDIUM
+Travel / Tourism,Destination-first immersive hero,Sky blue + amber CTA,Adventure sans-serif,Full-bleed destination hero video parallax,Too much text on hero no destination imagery,HIGH
+Real Estate,Property showcase with trust signals,Navy + green CTA,Professional clean sans,Virtual tour integration map integration hover,No photo gallery hidden pricing no agent photo,HIGH
+Developer Tools,Documentation-first dark mode,Dark + green accent monospace,Monospace technical sans,Syntax highlighting code demos terminal UI,Light backgrounds no code examples no pricing visible,MEDIUM
+Marketing / Agency,Work-showcase editorial bold,Purple + orange accent,Bold display creative,Portfolio hover reveals case study transitions,No social proof no client logos generic descriptions,HIGH
+Project Management,Dashboard productivity focused,Indigo + teal CTA,Clean geometric sans,Drag-drop demo task animations progress bars,Feature overload no free trial visible complex pricing,MEDIUM
+Analytics / Data,Data-first dark dashboard,Dark navy + indigo,Technical sans-serif,Live data visualization chart animations,Fake data screenshots no real demos no API docs,HIGH
+Photography Studio,Portfolio cinematic dark,Dark charcoal + gold,Serif editorial,Full-bleed portfolio hover reveals,Small images poor quality demos no contact,HIGH
+Beauty / Cosmetics,Product editorial soft,Pink + gold CTA,Elegant serif,Product 360 hover ingredient reveals,Artificial skin no diversity no ingredient transparency,HIGH

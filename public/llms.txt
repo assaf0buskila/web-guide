@@ -1,0 +1,22 @@
+# From Prompt to Production
+
+> מדריך ויזואלי בעברית (Hebrew, RTL) שמראה איך הופכים רעיון לעמוד נחיתה חי ב-Vercel,
+> בעבודת פינג-פונג בין Claude ל-GPT, עם דגש על UI/UX, נגישות, ביצועים ו-SEO.
+
+A Hebrew, single-page scrollytelling guide. It teaches a transferable workflow for building
+and shipping a landing page with AI assistants and deploying it to Vercel.
+
+## What this page covers
+- Load UI/UX, accessibility, performance and SEO thinking before generating anything.
+- Collect references and extract principles (not pixels).
+- A Claude + GPT "ping-pong" loop: strategy, structure, copy, components, critique, deploy.
+- Building the page in VS Code as a real React app.
+- Deploying to Vercel (two paths: CLI/drag-drop, or GitHub auto-redeploy).
+
+## Key links
+- Author website: https://www.assafweb.com/
+- Open-source repo: https://github.com/assaf0buskila/assaf-landingPage
+
+## Notes for agents
+- Language: Hebrew (he), direction RTL.
+- This is an educational guide; the deployment steps are transferable to any Vite/React site.
