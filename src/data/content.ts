@@ -13,7 +13,7 @@ export const WHY_POINTS = [
   },
 ];
 
-const REPO_SKILLS_BASE = "https://github.com/assaf0buskila/assaf-landingPage/tree/main/.claude/skills";
+const REPO_SKILLS_BASE = "https://github.com/assaf0buskila/web-guide/tree/main/.claude/skills";
 
 export const SKILLS = [
   { tag: "UI/UX", label: "חשיבת ממשק ומסע משתמש", href: `${REPO_SKILLS_BASE}/frontend-design` },
@@ -145,7 +145,15 @@ export const BUILD_STEPS = [
 
 export const RESOURCES = [
   { label: "האתר שלי", href: "https://www.assafweb.com/", primary: true },
-  { label: "הקוד הפתוח שלי ב-GitHub", href: "https://github.com/assaf0buskila/assaf-landingPage", primary: true },
+  { label: "הקוד של המדריך והסקילים ב-GitHub", href: "https://github.com/assaf0buskila/web-guide", primary: true },
   { label: "רפרנס חי נוסף", href: "https://kevingoyal.vercel.app/", primary: false },
   { label: "רפרנס בועות 3D", href: "https://github.com/kevingoyal2006/Portfolio-Website/blob/main/src/components/TechStack.tsx", primary: false },
 ];
+
+// Closing call to action. The UTM tags let assafweb.com see which visits came from this guide.
+export const LEARN_CTA = {
+  title: "רוצים לבנות את זה עם מישהו לידכם?",
+  body: "אני מלמד אחד על אחד, פנים מול פנים: יושבים יחד עם ChatGPT, Claude או Gemini, בוחרים מטרה אחת ובונים אותה עד הסוף.",
+  label: "לפרטים על הליווי האישי",
+  href: "https://www.assafweb.com/learn?utm_source=web-guide&utm_medium=referral",
+};

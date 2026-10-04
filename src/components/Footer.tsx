@@ -13,7 +13,7 @@ export default function Footer() {
           <a href="#skills" className="hover:text-bookcloth">כישורים</a>
           <a href="#path" className="hover:text-bookcloth">המסלול</a>
           <a href="#deploy" className="hover:text-bookcloth">פרסום</a>
-          <a href="https://github.com/assaf0buskila/assaf-landingPage" target="_blank" rel="noopener noreferrer" className="ltr hover:text-bookcloth">GitHub</a>
+          <a href="https://github.com/assaf0buskila/web-guide" target="_blank" rel="noopener noreferrer" className="ltr hover:text-bookcloth">GitHub</a>
         </nav>
       </div>
       <div className="mx-auto mt-8 max-w-layout text-xs text-muted-2">

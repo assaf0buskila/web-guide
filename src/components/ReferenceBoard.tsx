@@ -12,7 +12,7 @@ const REFERENCES = [
   "פלטת צבע מותאמת מתוך ref/color palette.png",
   "אפקט בועות תלת-ממד מתוך ref/Ball affect",
   "kevingoyal.vercel.app",
-  "github.com/assaf0buskila/assaf-landingPage",
+  "www.assafweb.com",
 ];
 
 export default function ReferenceBoard() {

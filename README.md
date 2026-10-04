@@ -31,9 +31,10 @@ GA4 לא נטען כלל.
 
 ## מה עוד כדאי להשלים
 
-- `public/og.svg` קיים כ-placeholder. לרשתות שלא מרנדרות SVG, מומלץ להוסיף `og.png` בגודל
-  1200×630 ולעדכן את ה-meta ב-`index.html`.
-- להחליף את `{{PRODUCTION_URL}}` ב-`index.html`, `robots.txt`, `sitemap.xml` בכתובת הסופית.
+- תמונת השיתוף היא `public/og.png` (1200×630, נוצרה מתוך `public/og.svg`), והיא מוגדרת בכתובת מלאה.
+- `{{PRODUCTION_URL}}` ב-`index.html`, `robots.txt` ו-`sitemap.xml` מוחלף בזמן ה-build בכתובת
+  מתוך משתנה הסביבה `PRODUCTION_URL` (ברירת המחדל: `https://web-guide-chi.vercel.app`, בלי `/` בסוף).
+  אם המחרוזת נשארת באיזה קובץ ב-`dist/`, ה-build נכשל.
 - טקסטורות הבועות נגזרות מ-`ref/Ball affect/`; ניתן להחליף ב-PNG שקופים נקיים תחת
   `public/images/`.
 
