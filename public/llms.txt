@@ -15,7 +15,7 @@ and shipping a landing page with AI assistants and deploying it to Vercel.
 
 ## Key links
 - Author website: https://www.assafweb.com/
-- Open-source repo: https://github.com/assaf0buskila/assaf-landingPage
+- Source of this guide and its skills: https://github.com/assaf0buskila/web-guide
 
 ## Notes for agents
 - Language: Hebrew (he), direction RTL.
